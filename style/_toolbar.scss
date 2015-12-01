@@ -1,13 +1,17 @@
 
+//定义变量，在全局范围内使用；如果要定义默认变量，仅需要在值后面加上!default即可。
+$toolbar-size:52px;
+
+//定义toolbar-item函数
+//$pos:移入前的位置
+//$hoverPos:鼠标移入的位置
+
 @mixin toolbar-item($pos, $hoverPos){
     background-position: 0 $pos; 
     &:hover{ // &表示父元素选择器
         background-position: 0 $hoverPos;
     }
 }
-
-//定义变量，在全局范围内使用；如果要定义默认变量，仅需要在值后面加上!default即可。
-$toolbar-size:52px;
 
 .toolbar-item, .toolbar-layer{
    background-image: url(../img/toolbar.png);
