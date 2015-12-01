@@ -1,0 +1,83 @@
+/* 
+    @author:Dorislyx
+    @email:lyxbythesea@sina.cn
+    @date:2015-12-1
+    
+ */
+
+//sass中使用@mixin声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，也可以给参数设置默认值。
+//声明的@mixin通过@include来调用。
+//定义toolbar-item函数
+//$pos:移入前的位置
+//￥hoverPos:鼠标移入的位置
+@mixin toolbar-item($pos, $hoverPos){
+    background-position: 0 $pos; 
+    &:hover{ // &表示父元素选择器
+        background-position: 0 $hoverPos;
+    }
+}
+@import "mixin";
+//定义变量，在全局范围内使用；如果要定义默认变量，仅需要在值后面加上!default即可。
+$toolbar-size:52px;
+
+.toolbar-item, .toolbar-layer{
+   background-image: url(../img/toolbar.png);
+   background-repeat: no-repeat;
+}
+
+.toolbar{
+   position: fixed;
+   right: 25px;
+   bottom: 25px;
+}
+
+.toolbar-item{
+    position: relative;
+    display: block;
+    width:$toolbar-size;
+    height: $toolbar-size; 
+    margin-top: 1px;
+    transition: background-position 0.5s;
+    
+    &:hover{// &表示父元素选择器
+        .toolbar-layer{
+            @include opacity(1);
+            @include scale(1);
+        }
+    }
+}
+
+.toolbar-item-winxin{
+    @include toolbar-item(-798px,-860px);
+    .toolbar-layer{
+        height: 212px;
+        background-position: 0 0;
+    }
+}
+
+.toolbar-item-feedback{
+    @include toolbar-item(-426px,-488px);
+}
+
+.toolbar-item-app{
+    @include toolbar-item(-550px,-612px);
+    .toolbar-layer{
+        height: 194px;
+        background-position: 0 -222px;
+    }
+}
+
+.toolbar-item-top{
+    @include toolbar-item(-674px,-736px);
+}
+
+.toolbar-layer{
+   position: absolute;
+   right: $toolbar-size - 3;
+   bottom: -8px;
+   width: 172px;
+   @include opacity(1);
+   @include transform-origin(95% 95%);
+   @include scale(0.01);
+   @include transitioin(all 0.5s);
+}
