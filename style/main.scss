@@ -1,0 +1,14 @@
+/* 
+    @author:Dorislyx
+    @email:lyxbythesea@sina.cn
+    @date:2015-12-1
+    
+ */
+
+//sass中使用@mixin声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，也可以给参数设置默认值。
+//声明的@mixin通过@include来调用。
+//定义toolbar-item函数
+//$pos:移入前的位置
+//￥hoverPos:鼠标移入的位置
+@import "mixin";
+@import "toolbar";
