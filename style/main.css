@@ -4,6 +4,10 @@
     @date:2015-12-1
     
  */
+p {
+  font-size: 26px;
+}
+
 .toolbar-item, .toolbar-layer {
   background-image: url(../img/toolbar.png);
   background-repeat: no-repeat;
